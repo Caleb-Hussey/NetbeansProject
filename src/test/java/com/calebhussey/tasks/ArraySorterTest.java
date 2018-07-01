@@ -1,31 +1,23 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.calebhussey.tasks;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 /**
  * Tests the sort function in the class ArraySorter
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@Component
+@ContextConfiguration(classes = BeanConfiguration.class)
 public class ArraySorterTest {
     
+    @Autowired
     private ArraySorter arraySorter;
-    
-    @Before
-    public void setUp() {
-        arraySorter = new ArraySorter();
-    }
-    
-    @After
-    public void tearDown() {
-        arraySorter = null;
-    }
 
     /**
      * Test the trivial case, where the array to be sorted is empty. 
@@ -51,7 +43,6 @@ public class ArraySorterTest {
      */
     @Test
     public void confirmNumericalSortTest() {
-        System.out.println("sort");
         int[] unsorted = new int[]{2,10,1,3,4,100,20};
         int[] expResult = new int[]{1,2,3,4,10,20,100};
         int[] result = arraySorter.sort(unsorted);
@@ -67,7 +58,6 @@ public class ArraySorterTest {
      */
     @Test
     public void mixedSignTest() {
-        System.out.println("sort");
         int[] unsorted = new int[]{111,-35,0,23,-9,-100,99,970};
         int[] expResult = new int[]{-100,-35,-9,0,23,99,111,970};
         int[] result = arraySorter.sort(unsorted);
@@ -81,7 +71,6 @@ public class ArraySorterTest {
      */
     @Test
     public void repeatedValuesTest() {
-        System.out.println("sort");
         int[] unsorted = new int[]{1,33,1,0,33,-23,1,-23,1,0,-23};
         int[] expResult = new int[]{-23,-23,-23,0,0,1,1,1,1,33,33};
         int[] result = arraySorter.sort(unsorted);
