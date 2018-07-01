@@ -13,5 +13,10 @@ public class BeanConfiguration {
     public ArraySorter arraySorter(){
         return new ArraySorter();
     }
+    
+    @Bean
+    public StringCompressor stringCompressor(){
+        return new StringCompressor();
+    }
 
 }
