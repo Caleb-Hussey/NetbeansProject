@@ -18,5 +18,10 @@ public class BeanConfiguration {
     public StringCompressor stringCompressor(){
         return new StringCompressor();
     }
+    
+    @Bean
+    public CharGrouper charGrouper(){
+        return new CharGrouper(arraySorter(), stringCompressor());
+    }
 
 }
