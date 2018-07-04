@@ -23,5 +23,10 @@ public class BeanConfiguration {
     public CharGrouper charGrouper(){
         return new CharGrouper(arraySorter(), stringCompressor());
     }
+    
+    @Bean
+    public CharGrouperController charGrouperController(){
+        return new CharGrouperController(charGrouper());
+    }
 
 }
